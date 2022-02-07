@@ -5,6 +5,7 @@ plugins {
 }
 
 def lifecycleVersion = '2.4.0'
+def fragmentVersion = '1.4.1'
 
 android {
     compileSdk 31
@@ -57,6 +58,8 @@ dependencies {
     implementation project(':marvel-api')
 
     kapt 'com.google.dagger:dagger-compiler:2.35.1'
+
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

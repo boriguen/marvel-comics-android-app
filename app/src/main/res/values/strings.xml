@@ -7,4 +7,5 @@
     <string name="label_story">The Story</string>
     <string name="action_previous"><![CDATA[< Previous]]></string>
     <string name="action_next"><![CDATA[Next >]]></string>
+    <string name="reading">Reading…</string>
 </resources>

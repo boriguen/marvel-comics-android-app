@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.botob.marvelcomics.MainActivity
+import com.botob.marvelcomics.R
 import com.botob.marvelcomics.databinding.MainFragmentBinding
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +34,9 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = MainFragmentBinding.inflate(inflater, container, false)
+
+        binding.readNowButton.setOnClickListener { handleReadNowClick() }
+
         return binding.root
     }
 
@@ -52,5 +57,15 @@ class MainFragment : Fragment() {
                 }
             }
         }
+    }
+
+    /**
+     * Handles the click on Read Now button.
+     */
+    private fun handleReadNowClick() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.reading)
+            .setPositiveButton(android.R.string.ok) { _, _ -> }
+            .show()
     }
 }

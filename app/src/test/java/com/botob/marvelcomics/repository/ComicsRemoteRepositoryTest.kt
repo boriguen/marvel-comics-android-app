@@ -37,7 +37,7 @@ class ComicsRemoteRepositoryTest {
     }
 
     @Test
-    fun fetchComic() {
+    fun testFetchComic() {
         val comic = repository.fetchComic(COMIC_ID)
 
         Assert.assertNotNull(comic)
