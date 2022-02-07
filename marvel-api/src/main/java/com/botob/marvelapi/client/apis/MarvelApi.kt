@@ -17,7 +17,7 @@ import com.botob.marvelapi.client.models.ComicDataContainer
 import com.botob.marvelapi.client.models.ComicDataWrapper
 import java.security.MessageDigest
 
-class MarvelApi(private val privateKey: String, private val publicKey: String, basePath: String = "http://gateway.marvel.com/") : ApiClient(basePath) {
+class MarvelApi(private val privateKey: String, private val publicKey: String, basePath: String = "https://gateway.marvel.com/") : ApiClient(basePath) {
     /**
      * Fetches lists of events filtered by a character id.
      * Fetches lists of events in which a specific character appears, with optional filters. See notes on individual parameters below.

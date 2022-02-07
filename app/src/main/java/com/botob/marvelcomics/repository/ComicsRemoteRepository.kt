@@ -12,7 +12,7 @@ class ComicsRemoteRepository(private val api: MarvelApi) : ComicsRepository {
     override fun fetchComic(id: Int): SimpleComic? {
         api.getComicIndividual(id)?.let {
             it.data?.results?.first()?.run {
-                return SimpleComic(title, description, thumbnail.path)
+                return SimpleComic(title, description, "${thumbnail.path}.${thumbnail.extension}")
             }
         } ?: return null
     }

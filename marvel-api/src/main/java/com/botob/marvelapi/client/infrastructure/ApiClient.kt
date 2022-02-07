@@ -48,7 +48,7 @@ open class ApiClient(val baseUrl: String) {
     protected inline fun <reified T : Any?> responseBody(body: ResponseBody?, mediaType: String = JsonMediaType): T? {
         if (body == null) return null
         val bodyContent = body.source().readUtf8()
-        println(bodyContent)
+        // println(bodyContent)
         return when (mediaType) {
             JsonMediaType -> Serializer.moshi.adapter(T::class.java).fromJson(bodyContent)
             else -> TODO()
