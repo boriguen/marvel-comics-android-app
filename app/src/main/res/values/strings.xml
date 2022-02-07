@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Marvel Comics</string>
+    <string name="action_read_now">Read now</string>
+    <string name="action_mark_as_read">Mark as read</string>
+    <string name="action_add_to_library">Add to library</string>
+    <string name="action_read_offline">Read offline</string>
+    <string name="label_story">The Story</string>
+    <string name="action_previous"><![CDATA[< Previous]]></string>
+    <string name="action_next"><![CDATA[Next >]]></string>
 </resources>

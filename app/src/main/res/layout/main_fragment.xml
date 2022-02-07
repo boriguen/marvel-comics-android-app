@@ -7,14 +7,168 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MainFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/upper_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/lower_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1">
+
+        <ImageView
+            android:id="@+id/comic_thumbnail"
+            android:layout_width="145dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/read_now_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/comic_placeholder" />
+
+        <Button
+            android:id="@+id/read_now_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@string/action_read_now"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@id/mark_as_read_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/action_read_now" />
+
+        <Button
+            android:id="@+id/mark_as_read_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:backgroundTint="@color/black"
+            android:drawableLeft="@drawable/ic_baseline_check_circle_24"
+            android:text="@string/action_mark_as_read"
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@id/add_to_library_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@+id/comic_thumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/read_now_button" />
+
+        <Button
+            android:id="@+id/add_to_library_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:backgroundTint="@color/black"
+            android:drawableLeft="@drawable/ic_baseline_add_circle_24"
+            android:text="@string/action_add_to_library"
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@id/read_offline_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_thumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/mark_as_read_button" />
+
+        <Button
+            android:id="@+id/read_offline_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:backgroundTint="@color/black"
+            android:drawableLeft="@drawable/ic_baseline_cloud_download_24"
+            android:text="@string/action_read_offline"
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/comic_thumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/add_to_library_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lower_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/upper_container"
+        app:layout_constraintVertical_weight="2">
 
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1"
+            tools:text="Ultimate Spider-Man Vol. 1: Power &amp; Responsibility (Trade Paperback)" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toTopOf="@id/story_label"
+            app:layout_constraintTop_toBottomOf="@id/title_text"
+            app:layout_constraintVertical_weight="1" />
+
+        <TextView
+            android:id="@+id/story_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
+            android:text="@string/label_story"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/description_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintVertical_weight="1"
+            tools:text="The Story" />
+
+        <TextView
+            android:id="@+id/description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="@dimen/margin_medium"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toTopOf="@id/previous_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/story_label"
+            app:layout_constraintVertical_weight="10"
+            tools:text="High school student Peter Parker finds himself the recipient of strange and amazing powers. Bullied by his classmates and targeted by the deadly Green Goblin, he learns that with great power, there must also come great responsibility." />
+
+        <Button
+            android:id="@+id/previous_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@string/action_previous"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_text"
+            app:layout_constraintVertical_weight="2" />
+
+        <Button
+            android:id="@+id/next_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@string/action_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_text"
+            app:layout_constraintVertical_weight="2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
