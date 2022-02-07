@@ -14,7 +14,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
-
     companion object {
         /**
          * The ID of the comic to fetch and render.
@@ -47,7 +46,7 @@ class MainFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.fetchComic(COMIC_ID)?.let {
                 launch(Dispatchers.Main) {
-                    Glide.with(requireContext()).load(it.coverImageUrl).fitCenter().into(binding.comicThumbnail)
+                    Glide.with(requireContext()).load(it.coverImageUrl).into(binding.comicThumbnail)
                     binding.titleText.text = it.title
                     binding.descriptionText.text = it.description
                 }

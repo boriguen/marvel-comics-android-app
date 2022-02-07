@@ -31,6 +31,7 @@ swagger-codegen generate \
 ```
 * **com.squareup.moshi**
 * **com.squareup.okhttp3**
+* **com.github.bumptech.glide**
 * Some Jetpack capabilities like Material Design, View Binding, MVVM
 
 ### Legal
